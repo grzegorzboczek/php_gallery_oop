@@ -24,10 +24,14 @@
             array_shift($images_array);
             array_shift($images_array);
 
-            if(isset($_GET['imageID']) && $_GET['imageID'] < 0 || $_GET['imageID'] > (count($images_array) - 1))
+            if(isset($_GET['imageID']))
             {
-                $this->image_id = 0;
-                return $this->image_id;
+                if($_GET['imageID'] < 0 || $_GET['imageID'] > (count($images_array) - 1))
+                {
+                    $this->image_id = 0;
+                    return $this->image_id;
+                }
+                
             }
 
             if(isset($_GET['imageID']))
